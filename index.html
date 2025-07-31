@@ -1,35 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Image près de l'encoche</title>
   <style>
     body {
       margin: 0;
-      background: #000;
+      background-color: #fff;
     }
 
-    .image-top {
+    .encoche-zone {
       position: fixed;
-      top: env(safe-area-inset-top);
-      left: env(safe-area-inset-left);
-      right: env(safe-area-inset-right);
-      height: 50px;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: yellow;
+      padding-top: env(safe-area-inset-top);
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      z-index: 10;
+    }
+
+    .contenu-haut {
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: #222;
+      height: 60px;
       padding-top: env(safe-area-inset-top);
     }
 
-    .image-top img {
-      height: 100%;
+    .contenu-haut img {
+      height: 40px;
       object-fit: contain;
+    }
+
+    .contenu-principal {
+      margin-top: calc(60px + env(safe-area-inset-top));
+      padding: 20px;
     }
   </style>
 </head>
 <body>
-  <div class="image-top">
-    <img src="https://images.frandroid.com/wp-content/uploads/2020/11/samsung-withgalaxy-photo-verticale-01.jpg" alt="Logo">
+
+  <!-- Bandeau en haut dans la zone notch -->
+  <div class="encoche-zone">
+    <div class="contenu-haut">
+      <img src="ton-image.jpg" alt="Logo">
+    </div>
   </div>
+
+  <!-- Contenu normal de la page -->
+  <div class="contenu-principal">
+    <h1>Bienvenue</h1>
+    <p>Voici le contenu de la page en dessous de la zone notch.</p>
+  </div>
+
 </body>
 </html>
